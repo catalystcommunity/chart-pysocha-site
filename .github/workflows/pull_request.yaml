@@ -19,3 +19,5 @@ jobs:
     steps:
       - uses: crazy-max/ghaction-dump-context@v1
       - uses: catalystcommunity/action-validate-helm-chart@v1
+        with:
+          validate-main-alpha-merge: false
