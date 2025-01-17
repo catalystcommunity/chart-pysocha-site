@@ -17,7 +17,7 @@ data:
     }
 
     http://{{ .Values.domain}} {
-      root * {{ .Values.sitepath}}
+      root * {{ .Values.sitefilePath}}
 
       file_server
       log {

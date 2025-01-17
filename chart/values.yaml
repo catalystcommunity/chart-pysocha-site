@@ -1,6 +1,6 @@
 domain: notreal.xyz
 caddyfilePath: "/etc/caddy/Caddyfile"
-sitepath: "/site/"
+sitefilePath: "/site/"
 
 image:
   repository: 'nginx' # Yes, the irony of using caddy normally is intended
