@@ -1,0 +1,7 @@
+apiVersion: v2
+icon: https://raw.githubusercontent.com/catalystcommunity/.github/refs/heads/main/FlameoProfile.png
+name: pysocha-site
+description: Deploys a simple pysocha or other static site hosted with a caddy server. The caddyfile, site path, and ports/monitoring are all configurable for whatever image you want to use that uses caddy and a single directory site.
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

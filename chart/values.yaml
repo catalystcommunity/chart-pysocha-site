@@ -1,0 +1,80 @@
+domain: notreal.xyz
+caddyfilePath: "/etc/caddy/Caddyfile"
+sitepath: "/site/"
+
+image:
+  repository: 'nginx' # Yes, the irony of using caddy normally is intended
+  tag: 'notrealtag'
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+http:
+  enabled: true
+  port: 8080 
+app: {}
+
+# Only if needed, you may need to create a secret in the namespace something like this:
+# kubectl create secret -n <YOUR-NAMESPACE> docker-registry <YOUR_SECRET_NAME> --docker-server="<YOUR_REGISTRY_SERVER>" \
+# --docker-email='<YOUR_REGISTRY_USERNAME>' \
+# --docker-username='<YOUR_REGISTRY_USERNAME>' \
+# --docker-password='<YOUR_REGISTRY_SECRET>'
+# and update the value of this to
+# - name: <YOUR_SECRET_NAME>
+imagePullSecrets: []
+
+healthCheck:
+  path: /health
+
+metrics:
+  enabled: true
+  path: /metrics
+  port: 8081
+  serviceMonitor:
+    interval: 10s
+    scrapeTimeout: 10s
+    relabelings: []
+    namespaceSelector: {}
+    labels: {}
+    annotations: {}
+
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext:
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 2000
+  runAsGroup: 2000
+  fsGroup: 2000
+
+resources: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
