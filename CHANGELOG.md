@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/catalystcommunity/chart-pysocha-site/compare/v1.0.0...v1.0.1) (2025-01-17)
+
+
+### Bug Fixes
+
+* perhaps the release is fixed with no alpha requirement ([1fa231b](https://github.com/catalystcommunity/chart-pysocha-site/commit/1fa231b072b4f0c1a2d2a5737dd9d45a63ae1e76))
+
 # 1.0.0 (2025-01-17)
 
 
