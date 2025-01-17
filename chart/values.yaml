@@ -7,14 +7,10 @@ image:
   tag: 'notrealtag'
   pullPolicy: IfNotPresent
 
-service:
-  type: ClusterIP
-  port: 8080
-
 http:
-  enabled: true
-  port: 8080 
-app: {}
+  enabled: true # This doesn't do anything, but is suggestive, isn't it? Maybe later.
+  port: 8080
+  servicetype: ClusterIP
 
 # Only if needed, you may need to create a secret in the namespace something like this:
 # kubectl create secret -n <YOUR-NAMESPACE> docker-registry <YOUR_SECRET_NAME> --docker-server="<YOUR_REGISTRY_SERVER>" \
