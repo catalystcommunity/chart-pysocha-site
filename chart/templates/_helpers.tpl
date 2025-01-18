@@ -35,7 +35,6 @@ Common labels
 */}}
 {{- define "pysocha-site.labels" -}}
 helm.sh/chart: {{ include "pysocha-site.chart" . }}
-{{ include "pysocha-site.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
