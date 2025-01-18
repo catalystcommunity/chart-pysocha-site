@@ -23,9 +23,10 @@ imagePullSecrets: []
 
 healthCheck:
   path: /health
+  port: 8080
 
 metrics:
-  enabled: true
+  enabled: false
   path: /metrics
   port: 8081
   serviceMonitor:
@@ -48,8 +49,8 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
-  # fsGroup: 2000
+podSecurityContext:
+  allowPrivilegeEscalation: false
 
 securityContext:
   # capabilities:

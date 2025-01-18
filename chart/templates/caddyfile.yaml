@@ -2,13 +2,18 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-caddyfile
-  namespace: grafana
   labels:
     {{- include "pysocha-site.labels" . | nindent 4 }}
     {{- include "pysocha-site.selectorLabels" . | nindent 4}}
 data:
-  Caddyfile: |-
-    http://www.{{ .Values.domain}} {
+  Caddyfile: |
+    {
+      storage file_system {
+          root /tmp/
+      }
+    }
+
+    http://www.{{ .Values.domain}}:{{ .Values.http.port }} {
       redir https://{{ .Values.domain}}
       log {
         output stdout
@@ -16,7 +21,7 @@ data:
       }
     }
 
-    http://{{ .Values.domain}} {
+    http://{{ .Values.domain}}:{{ .Values.http.port }} {
       root * {{ .Values.sitefilePath}}
 
       file_server

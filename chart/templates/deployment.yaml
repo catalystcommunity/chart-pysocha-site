@@ -22,14 +22,16 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.securityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "notrealtag" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            - name: XDG_CONFIG_HOME 
+              value: /tmp
             - name: PORT
               value: {{ .Values.http.port | quote }}
           ports:
@@ -53,13 +55,18 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-caddyfile
+              mountPath: {{ .Values.caddyfilePath }} # This should be your final destination
+              subPath: Caddyfile # The name of the file to be placed there, mountPath should end in Caddyfile
+
       volumes:
         - name: {{ .Release.Name }}-caddyfile
           configMap: 
             name: {{ .Release.Name }}-caddyfile
             items:
               - key: Caddyfile
-                path: {{ .Values.image.caddyfilePath }}
+                path: Caddyfile 
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
