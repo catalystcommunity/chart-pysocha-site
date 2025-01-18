@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/catalystcommunity/chart-pysocha-site/compare/v1.0.1...v1.0.2) (2025-01-18)
+
+
+### Bug Fixes
+
+* used skaffold on tnl-site to make sure the chart installs correctly ([af83292](https://github.com/catalystcommunity/chart-pysocha-site/commit/af83292b3144d1109d38c924281f02e5293b7469))
+
 ## [1.0.1](https://github.com/catalystcommunity/chart-pysocha-site/compare/v1.0.0...v1.0.1) (2025-01-17)
 
 
