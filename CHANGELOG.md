@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/catalystcommunity/chart-pysocha-site/compare/v1.1.0...v1.1.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* quote domain correctly ([6275abf](https://github.com/catalystcommunity/chart-pysocha-site/commit/6275abf83a9b255d64f1c79e11ff3f667e4ba82e))
+
 # [1.1.0](https://github.com/catalystcommunity/chart-pysocha-site/compare/v1.0.2...v1.1.0) (2025-01-21)
 
 
