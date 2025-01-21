@@ -19,6 +19,8 @@ This will create a namespace and a release (replace mypysochasite with your rele
 
 Some optional changes like your site path and whatnot are available in the default value.yaml file
 
+The ingress is setup for Contour (not using the gateway API). You'll need to provide your own `ingress` values if you want to use a different ingress controller.
+
 This will redirect any `www.domain.tld` to `domain.tld` on https as well. If you want to use www for some reason, uh, PR something that defaults to non-www and allows an override. If it's good we'll consider it. 
 
 Keep in mind that this does not manage any TLS, despite using Caddy. TLS should be handled by your ingress or your own mTLS sidecars. Caddy wasn't really built for kubernetes in thei automatic https bits. If that changes, we might update, or we might switch to simply using another http server, who knows.

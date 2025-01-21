@@ -12,6 +12,13 @@ http:
   port: 8080
   servicetype: ClusterIP
 
+
+ingress:
+  enabled: true
+  annotations: {}
+  ingressClassName: contour
+  tls: []
+
 # Only if needed, you may need to create a secret in the namespace something like this:
 # kubectl create secret -n <YOUR-NAMESPACE> docker-registry <YOUR_SECRET_NAME> --docker-server="<YOUR_REGISTRY_SERVER>" \
 # --docker-email='<YOUR_REGISTRY_USERNAME>' \
