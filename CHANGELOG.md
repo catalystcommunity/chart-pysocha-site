@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/catalystcommunity/chart-pysocha-site/compare/v1.0.2...v1.1.0) (2025-01-21)
+
+
+### Features
+
+* add ingress ([331d57c](https://github.com/catalystcommunity/chart-pysocha-site/commit/331d57cd04e9d2e3ec42fc88d5a11d761ae08ec2))
+
 ## [1.0.2](https://github.com/catalystcommunity/chart-pysocha-site/compare/v1.0.1...v1.0.2) (2025-01-18)
 
 
