@@ -37,7 +37,7 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    - host: "{{ .Values.domain | quote }}"
+    - host: "{{ .Values.domain }}"
       http:
         paths:
           - path: /
@@ -52,7 +52,7 @@ spec:
               serviceName: {{ $fullName }}
               servicePort: {{ $svcPort }}
               {{- end }}
-    - host: "www.{{ .Values.domain | quote }}"
+    - host: "www.{{ .Values.domain }}"
       http:
         paths:
           - path: /
